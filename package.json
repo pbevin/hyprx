@@ -1,6 +1,6 @@
 {
   "name": "hyprx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Like hyperscript, but with more bells and whistles",
   "main": "index.js",
   "scripts": {
