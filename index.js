@@ -35,7 +35,7 @@ function h(componentOrTag, properties, children) {
     throw new Error('Null component!');
   } else if (typeof componentOrTag === 'string') {
     const [component, extraProps] = parseTag(componentOrTag, properties);
-    return createElement(component, { ...properties, ...extraProps }, children);
+    return createElement(component, Object.assign({}, properties, extraProps), children);
   } else {
     return createElement(componentOrTag, properties, children);
   }
@@ -43,7 +43,7 @@ function h(componentOrTag, properties, children) {
 
 function createElement(componentOrTag, props, children) {
   const args = [componentOrTag, props].concat(children);
-  return React.createElement(...args);
+  return React.createElement.apply(React, args);
 }
 
 function isChildren(x) {
